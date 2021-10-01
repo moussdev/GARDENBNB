@@ -10,28 +10,27 @@
 require 'faker'
 
 15.times do
+  user = User.new(
+    username: Faker::Name.middle_name,
+    password: 'icicestparis',
+    email: Faker::Internet.email,
+    image: Faker::Avatar.image(slug: "my-own-slug"),
+    description: Faker::Quotes::Shakespeare,
+    address: Faker::Address.full_address,
+    phonenumber: Faker::PhoneNumber.cell_phone
+  )
+  user.save!
+end
+
+15.times do
   garden = Garden.new(
-    title: Faker::Mountain.name,
+    title: 'Mon annonce Jardinage',
     price: (0..1000).to_a.sample,
     image: Faker::LoremFlickr.image(size: "50x60"),
     description: Faker::Quotes::Shakespeare,
     address: Faker::Address.full_address,
     land: Garden::LIST_OF_LAND.sample,
-    user: User.first
+    user: User.all.sample
   )
   garden.save!
-end
-
-
-15.times do
-  user = User.new(
-    username: Faker::Mountain.name,
-    email: (0..1000).to_a.sample,
-    image: Faker::LoremFlickr.image(size: "50x60"),
-    description: Faker::Quotes::Shakespeare,
-    address: Faker::Address.full_address,
-    land: Garden::LIST_OF_LAND.sample,
-    garden: Garden.first
-  )
-  user.save!
 end

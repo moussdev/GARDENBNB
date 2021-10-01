@@ -4,7 +4,7 @@ class GardensController < ApplicationController
   end
 
   def show
-    @garden_id = Garden_id.new
+    @garden = Garden.find(params[:garden_id])
   end
 
   def new
