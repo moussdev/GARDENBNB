@@ -10,4 +10,21 @@ class GardensController < ApplicationController
   def new
     @garden = Garden.new
   end
-end
+
+  def create
+      @garden = Garden.new(garden_params)
+      @garden.user = User.first
+      # @garden.user = current_user
+    if @garden.save
+      redirect_to garden_path(@garden)
+    else
+      render "new"
+    end
+  end
+  
+    private
+  
+  def garden_params
+      params.require(:garden).permit(:title, :image, :land, :price, :description, :address, :user_id)
+    end
+  end
