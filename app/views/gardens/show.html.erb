@@ -1,20 +1,24 @@
 
-<!DOCTYPE html>
-<html>
-    <div class="container">
-      <div class="row">
-        <div class="col-6">
-          <div class="card-garden">
-              <%= cl_image_tag @garden.image.key%>
-              <div class="card-garden-infos">
-              <p><strong>Titre de l'annonce</strong>: <%= @garden.title %></p>
-              <p><strong>Description</strong>: <%= @garden.description %></p>
-              <p><strong>Prix</strong>: <%= @garden.price %></p>
-              <p><strong>Addresse</strong>: <%= @garden.address %></p>
-            </div>
-          </div>
+<div class="container">
+  <div class="row">
+    <div class="col-8">
+      <div class="card-garden">
+        <%= cl_image_tag @garden.image.key%>
+        <div class="card-garden-infos">
+          <p><strong>Titre de l'annonce</strong>: <%= @garden.title %></p>
+          <p><strong>Description</strong>: <%= @garden.description %></p>
+          <p><strong>Prix</strong>: <%= @garden.price %></p>
+          <p><strong>Addresse</strong>: <%= @garden.address %></p>
         </div>
       </div>
     </div>
-</html>
+    <div class="col-4">
+      <%= simple_form_for [ @garden, @reservation ] do |f| %>
+        <%= f.input :date_start, as: :date, html5: true %>
+        <%= f.input :date_end, as: :date, html5: true %>
+        <%= f.submit "Réserver", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
 
