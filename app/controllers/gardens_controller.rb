@@ -15,7 +15,6 @@ class GardensController < ApplicationController
       @garden = Garden.new(garden_params)
       @garden.user = current_user
       # @garden.user = current_user
-      byebug
     if @garden.save
       redirect_to garden_path(@garden)
     else

@@ -8,6 +8,10 @@
 #Respect des validations
 
 require 'faker'
+require 'open-uri'
+
+Garden.destroy_all
+User.destroy_all
 
 15.times do
   user = User.new(
@@ -23,14 +27,15 @@ require 'faker'
 end
 
 15.times do
+  file = open("https://prod-saint-gobain-fr.content.saint-gobain.io/sites/saint-gobain.fr/files/2020-06/amenagement-jardin-reussi-01.jpg")
   garden = Garden.new(
     title: 'Mon annonce Jardinage',
     price: (0..1000).to_a.sample,
-    image: Faker::LoremFlickr.image(size: "50x60"),
     description: Faker::Quotes::Shakespeare,
     address: Faker::Address.full_address,
     land: Garden::LIST_OF_LAND.sample,
     user: User.all.sample
   )
+  garden.image.attach(io: file, filename: "image.jpg")
   garden.save!
 end

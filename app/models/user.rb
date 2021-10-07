@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :gardens
+  has_many :gardens, dependent: :destroy
   has_many :reservations
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
