@@ -4,7 +4,7 @@ class GardensController < ApplicationController
   end
 
   def show
-    @garden = Garden.find(params[:garden_id])
+    @garden = Garden.find(params[:id])
   end
 
   def new
@@ -15,6 +15,7 @@ class GardensController < ApplicationController
       @garden = Garden.new(garden_params)
       @garden.user = current_user
       # @garden.user = current_user
+      byebug
     if @garden.save
       redirect_to garden_path(@garden)
     else

@@ -9,6 +9,8 @@ class Garden < ApplicationRecord
   validates :description, length: { minimum: 25, maximum: 250 }
   validates :address, length: { minimum: 10, maximum: 70 }
   validates :price, numericality: { only_integer: true }
-  #REGEX URL VALIDATION
+  #REGEX URL VALIDATION!!!
   validates :land, inclusion: { in: LIST_OF_LAND }
+
+  has_one_attached :image
 end
