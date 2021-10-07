@@ -2,7 +2,7 @@
 <h1> Coucou la show, il fait show </h1>
 <div class="container">
   <div class="row">
-    <div class="col-6">
+    <div class="col-8">
       <div class="card-garden">
           <%= cl_image_tag @garden.image.key%>
           <div class="card-garden-infos">
@@ -15,6 +15,13 @@
           <p><strong>Titre de l'annonce</strong></p>
         </div>
       </div>
+    </div>
+    <div class="col-4">
+      <%= simple_form_for [ @garden, @reservation ] do |f| %>
+        <%= f.input :date_start, as: :date, html5: true %>
+        <%= f.input :date_end, as: :date, html5: true %>
+        <%= f.submit "Réserver", class: "btn btn-primary" %>
+      <% end %>
     </div>
   </div>
 </div>
