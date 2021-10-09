@@ -2,12 +2,12 @@
   <h1 class="titleheader"> Tous nos jardins à louer</h1>
   <div class="cards">
     <% @gardens.each do |garden| %>
-      <%= link_to garden_path(garden) do %>
+      <%= link_to(garden_path(garden), class:"card-garden-link") do %>
         <div class="card-garden">
           <%= cl_image_tag garden.image.key %>
           <div class="card-garden-infos">
             <p><strong>Titre de l'annonce</strong>: <%= garden.title %></p>
-            <p><strong>Prix</strong>: <%= garden.price %></p>
+            <p><strong>Prix</strong>: <%= garden.price %>€</p>
           </div>
         </div>
       <% end %>
