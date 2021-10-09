@@ -10,7 +10,7 @@ class ReservationsController < ApplicationController
     # Créer une méthode de pricing degréssive
     @reservation.price_final = days * price
     if @reservation.save
-      redirect_to garden_path(@garden)
+      redirect_to my_reservations_path
     else
       render "gardens/show"
     end
