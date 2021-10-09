@@ -4,7 +4,7 @@
     <% @gardens.each do |garden| %>
       <%= link_to garden_path(garden) do %>
         <div class="card-garden">
-          <%= cl_image_tag garden.image.key%>
+          <%= cl_image_tag garden.image.key %>
           <div class="card-garden-infos">
             <p><strong>Titre de l'annonce</strong>: <%= garden.title %></p>
             <p><strong>Prix</strong>: <%= garden.price %></p>

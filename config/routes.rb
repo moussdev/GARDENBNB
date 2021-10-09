@@ -5,6 +5,9 @@ Rails.application.routes.draw do
     resources :reservations, only: [:create]
   end
 
+  namespace :my do
+    resources :reservations, only: [:index]
+  end
 
   get "about_us", to: "pages#about_us"
 

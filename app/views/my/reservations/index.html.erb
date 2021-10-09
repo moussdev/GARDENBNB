@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>Mes réservations</h1>
+  <% @reservations.each_with_index do |reservation, index| %>
+    <div class="card">
+      <div class="card-body">
+        <p class="font-weight-bold"> Réservation n°<%= index+1 %> </p>
+        <p> <%= reservation.garden.title %> </p>
+        <%= cl_image_tag(reservation.garden.image.key, class: "card-reservation-image") %>
+        <p> Date de début : <%= reservation.date_start %> </p>
+        <p> Date de fin : <%= reservation.date_end %> </p>
+        <p> Prix final : <%= reservation.price_final %>€ </p>
+      </div>
+    </div>
+  <% end %>
+</div>
