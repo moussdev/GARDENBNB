@@ -10,8 +10,8 @@
 require 'faker'
 require 'open-uri'
 
-#Garden.destroy_all
-#User.destroy_all
+Garden.destroy_all
+User.destroy_all
 
 15.times do
   user = User.new(
