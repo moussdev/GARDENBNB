@@ -5,6 +5,7 @@ class GardensController < ApplicationController
 
   def show
     @garden = Garden.find(params[:id])
+    @reservation = Reservation.new
   end
 
   def new
