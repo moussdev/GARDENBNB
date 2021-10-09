@@ -1,9 +1,12 @@
-<%= simple_form_for @garden do |f| %>
-  <%= f.input :title %>
-  <%= f.input :price %>
-  <%= f.input :image, as: :file %>
-  <%= f.input :description %>
-  <%= f.input :address %>
-  <%= f.input :land %>
-  <%= f.button :submit %>
-<% end %>
+<div class="container">
+  <h1 class="titleheader">Ajouter un jardin</h1>
+  <%= simple_form_for @garden do |f| %>
+    <%= f.input :title, label: "Titre"%>
+    <%= f.input :price, label: "Prix" %>
+    <%= f.input :image, as: :file, label: "Photo" %>
+    <%= f.input :description, label: "Description" %>
+    <%= f.input :address, label: "Adresse" %>
+    <%= f.input :land, label: "Type", collection: Garden::LIST_OF_LAND %>
+    <%= f.button :submit, class: "btn btn-brique", label: "Valider" %>
+  <% end %>
+</div>
