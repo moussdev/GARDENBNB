@@ -1,6 +1,12 @@
 class GardensController < ApplicationController
   def index
     @gardens = Garden.all
+    # @markers = @garden.geocoded.map do |garden|
+    #   {
+    #     lat: garden.latitude,
+    #     lng: garden.longitude
+    #   }
+    # end
   end
 
   def show

@@ -24,6 +24,8 @@ gem 'jbuilder', '~> 2.7'
 
 gem 'date_validator'
 
+gem 'geocoder'
+
 gem 'devise'
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 

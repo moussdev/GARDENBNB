@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :gardenaddresses
   devise_for :users
   root to: 'gardens#index'
   resources :gardens, only: [:new, :show, :create] do
